@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD AL-AMIN | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-alt: #111827;
+      --card: rgba(30, 41, 59, 0.72);
+      --border: rgba(148, 163, 184, 0.16);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-2: #818cf8;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-alt: #eef2f6;
+      --card: rgba(255, 255, 255, 0.94);
+      --border: rgba(15, 23, 42, 0.1);
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #0284c7;
+      --primary-2: #4f46e5;
+      --shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    html[lang="bn"] body {
+      font-family: 'Hind Siliguri', 'Inter', -apple-system, sans-serif;
+    }
+
+    h1, h2, h3, h4, .logo {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', -apple-system, sans-serif;
+    }
+
+    html[lang="bn"] h1,
+    html[lang="bn"] h2,
+    html[lang="bn"] h3,
+    html[lang="bn"] h4,
+    html[lang="bn"] .logo {
+      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(11, 17, 32, 0.86);
+      border-bottom: 1px solid var(--border);
+    }
+
+    [data-theme="light"] header {
+      background: rgba(248, 250, 252, 0.88);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.3px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.2s, transform 0.2s, color 0.2s;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .icon-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: grid;
+      place-items: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 64px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    /* 1. Available Badge with Live Pulse Dot */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 15px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .pulse-dot {
+      position: relative;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+    }
+
+    .pulse-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #22c55e;
+      animation: livePulse 1.8s ease-out infinite;
+    }
+
+    @keyframes livePulse {
+      0% { transform: scale(0.7); opacity: 0.9; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    .hero h1 {
+      font-size: clamp(1.85rem, 4.2vw, 3rem);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Pure CSS Typing Effect (Works smoothly in both EN & BN) */
+    .type-grid {
+      display: inline-grid;
+      align-items: center;
+      max-width: 100%;
+    }
+
+    .type-ghost {
+      grid-area: 1 / 1;
+      visibility: hidden;
+      white-space: nowrap;
+      padding-right: 6px;
+    }
+
+    .type-name {
+      grid-area: 1 / 1;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      border-right: 3px solid var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation:
+        cssTypeName 4.5s steps(14, end) infinite,
+        caretBlink 0.7s step-end infinite;
+    }
+
+    @keyframes cssTypeName {
+      0%, 8%   { width: 0%; }
+      38%, 78% { width: 100%; }
+      95%, 100% { width: 0%; }
+    }
+
+    .role-line {
+      font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+      font-size: clamp(0.95rem, 2.1vw, 1.3rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .type-role {
+      grid-area: 1 / 1;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      color: var(--primary);
+      border-right: 2.5px solid var(--primary-2);
+      animation:
+        cssTypeRole 6s steps(32, end) infinite,
+        caretBlink 0.75s step-end infinite;
+    }
+
+    @keyframes cssTypeRole {
+      0%, 10%  { width: 0%; }
+      45%, 82% { width: 100%; }
+      96%, 100% { width: 0%; }
+    }
+
+    @keyframes caretBlink {
+      0%, 49% { border-color: var(--primary); }
+      50%, 100% { border-color: transparent; }
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 26px;
+      max-width: 600px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.94rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+    }
+
+    .btn svg {
+      width: 19px;
+      height: 19px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* 2. Button Shine Effect */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(56, 189, 248, 0.28);
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.42),
+        transparent
+      );
+      transform: skewX(-22deg);
+      animation: btnShine 3.2s infinite;
+    }
+
+    @keyframes btnShine {
+      0%, 55% { left: -100%; }
+      100% { left: 160%; }
+    }
+
+    .btn-outline {
+      background: var(--card);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.16);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* 3. Profile Card with Gentle Downward Float + Glowing Ring */
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      animation: gentleFloat 4.5s ease-in-out infinite;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(8px); }
+    }
+
+    .avatar-ring {
+      position: relative;
+      width: 162px;
+      height: 162px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    .avatar-ring::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #38bdf8,
+        #818cf8,
+        #ec4899,
+        #22d3ee,
+        #38bdf8
+      );
+      animation: spinRing 3.5s linear infinite;
+    }
+
+    .avatar-ring::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #38bdf8,
+        #818cf8,
+        #ec4899,
+        #22d3ee,
+        #38bdf8
+      );
+      filter: blur(14px);
+      opacity: 0.65;
+      z-index: 0;
+      animation: spinRing 3.5s linear infinite, pulseGlow 2.6s ease-in-out infinite;
+    }
+
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.45; transform: scale(0.98) rotate(0deg); }
+      50% { opacity: 0.85; transform: scale(1.04) rotate(180deg); }
+    }
+
+    .avatar-inner {
+      position: relative;
+      z-index: 1;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      padding: 4px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 50%;
+      display: block;
+      background: var(--bg-alt);
+    }
+
+    .hero-card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-card .role {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .hero-card .loc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.12rem;
+      color: var(--primary);
+    }
+
+    .stat span {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* 4. Smooth Scroll Fade-In Animation (Safe fallback without JS) */
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+    }
+
+    .js-enabled .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* Experience */
+    .exp-card {
+      border-left: 4px solid var(--primary);
+    }
+
+    .exp-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .exp-top h3 {
+      color: var(--text);
+      margin: 0;
+      font-size: 1.18rem;
+    }
+
+    .exp-org {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .exp-date {
+      font-size: 0.86rem;
+      color: var(--muted);
+      background: var(--bg-alt);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      align-self: flex-start;
+    }
+
+    .exp-list {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .exp-list li {
+      margin-bottom: 8px;
+    }
+
+    /* Education & Training */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary-2);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .timeline-item .date {
+      font-size: 0.84rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .lang-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 0.94rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-pill strong {
+      color: var(--primary);
+    }
+
+    /* 5. Contact & Official Logos with Bounce/Glow Effect */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .social-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .social-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 26px rgba(56, 189, 248, 0.18);
+    }
+
+    .brand-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #ffffff;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+    }
+
+    .social-card:hover .brand-icon {
+      transform: scale(1.14) translateY(-2px);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.55);
+    }
+
+    .brand-icon svg {
+      width: 26px;
+      height: 26px;
+      display: block;
+    }
+
+    .social-text span {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .social-text strong {
+      font-size: 0.94rem;
+      word-break: break-word;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .footer-socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #ffffff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+    }
+
+    .footer-socials a:hover {
+      transform: scale(1.15) translateY(-4px);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
+    }
+
+    .footer-socials svg {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+        gap: 24px;
+      }
+      .btn-group {
+        margin-bottom: 18px;
+      }
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 18px;
+        display: none;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .menu-toggle {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo" data-i18n="brandName">MD AL-AMIN</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+        <li><a href="#experience" data-i18n="navExp">Experience</a></li>
+        <li><a href="#education" data-i18n="navEdu">Education</a></li>
+        <li><a href="#training" data-i18n="navCert">Certifications</a></li>
+        <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="lang-btn" id="langToggle" title="Switch Language">🌐 বাংলা</button>
+        <button class="icon-btn" id="themeToggle" title="Toggle Theme">☀️</button>
+        <button class="icon-btn menu-toggle" id="menuToggle" title="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div>
+        <div class="badge">
+          <span class="pulse-dot"></span>
+          <span data-i18n="badgeText">Open to Administration, Data Entry & Technical Support</span>
+        </div>
+
+        <!-- Pure CSS Typing Name -->
+        <h1>
+          <span data-i18n="heroGreet">Hi, I'm</span>
+          <span class="type-grid">
+            <span class="type-ghost" id="nameGhost">MD AL-AMIN</span>
+            <span class="type-name" id="nameTyped">MD AL-AMIN</span>
+          </span>
+        </h1>
+
+        <!-- Pure CSS Typing Role -->
+        <div class="role-line">
+          <span data-i18n="heroRolePrefix">I'm a</span>
+          <span class="type-grid">
+            <span class="type-ghost" id="roleGhost">Data Entry & Office Professional</span>
+            <span class="type-role" id="roleTyped">Data Entry & Office Professional</span>
+          </span>
+        </div>
+
+        <p data-i18n="heroSummary">
+          Administrative and data-entry professional with two years of experience supporting the Department of Social Services. Skilled in computerised data entry, digital database maintenance, office documentation, mobile graphic design, video editing, and modern AI tools.
+        </p>
+
+        <!-- Hero Buttons with Logos -->
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/>
+            </svg>
+            <span data-i18n="btnConnect">Connect With Me</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/md-al-amin-hossen-225885408" target="_blank" class="btn btn-outline">
+            <svg viewBox="0 0 24 24">
+              <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+              <path fill="#FFFFFF" d="M7.5 18.5H4.8v-8.7h2.7v8.7zM6.15 8.6a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12zM19.2 18.5h-2.7v-4.23c0-1.01-.02-2.31-1.41-2.31-1.41 0-1.63 1.1-1.63 2.24v4.3h-2.7v-8.7h2.59v1.19h.04c.36-.68 1.24-1.41 2.56-1.41 2.74 0 3.25 1.8 3.25 4.15v4.77z"/>
+            </svg>
+            <span data-i18n="btnLinkedIn">LinkedIn</span>
+          </a>
+
+          <a href="https://github.com/akamosafir150" target="_blank" class="btn btn-outline">
+            <svg viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.95 10.95 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.26 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+            </svg>
+            <span data-i18n="btnGitHub">GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Profile Card with Floating + Glowing Photo -->
+      <div class="hero-card">
+        <div class="avatar-ring">
+          <div class="avatar-inner">
+            <img
+              src="https://lh3.googleusercontent.com/d/1io8Gmh1QSLNefcNNHpSKOa7aZvUG3UPJ"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1io8Gmh1QSLNefcNNHpSKOa7aZvUG3UPJ&sz=w1000';"
+              alt="MD AL-AMIN"
+            />
+          </div>
+        </div>
+        <h3 data-i18n="brandName">MD AL-AMIN</h3>
+        <div class="role" data-i18n="cardRole">Administrative & Data Entry Professional</div>
+        <div class="loc" data-i18n="cardLoc">📍 Dhanbari, Tangail, Bangladesh</div>
+        <div class="stats">
+          <div class="stat">
+            <strong data-i18n="stat1Val">2 Years</strong>
+            <span data-i18n="stat1Lbl">Experience</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="stat2Val">98%+</strong>
+            <span data-i18n="stat2Lbl">Accuracy</span>
+          </div>
+          <div class="stat">
+            <strong data-i18n="stat3Val">Grade A+</strong>
+            <span data-i18n="stat3Lbl">BTEB Certified</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Skills -->
+    <section id="skills" class="reveal">
+      <div class="section-header">
+        <h2 data-i18n="skillsTitle">Core Skills</h2>
+        <p data-i18n="skillsSub">Technical, administrative, creative, and modern AI competencies</p>
+      </div>
+      <div class="skills-grid">
+        <div class="card">
+          <h3 data-i18n="skillCat1">Office & Data Management</h3>
+          <div class="tags">
+            <span class="tag" data-i18n="sk1">Data Entry (Bangla & English)</span>
+            <span class="tag" data-i18n="sk2">Microsoft Word</span>
+            <span class="tag" data-i18n="sk3">Microsoft Excel</span>
+            <span class="tag" data-i18n="sk4">Microsoft PowerPoint</span>
+            <span class="tag" data-i18n="sk5">Microsoft Access</span>
+            <span class="tag" data-i18n="sk6">Digital Database Maintenance</span>
+            <span class="tag" data-i18n="sk7">File Management</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="skillCat2">Administrative & Creative</h3>
+          <div class="tags">
+            <span class="tag" data-i18n="sk8">Official Documentation</span>
+            <span class="tag" data-i18n="sk9">Report Preparation</span>
+            <span class="tag" data-i18n="sk10">Secretarial & Tech Support</span>
+            <span class="tag" data-i18n="sk11">Mobile Graphic Design</span>
+            <span class="tag" data-i18n="sk12">Photo & Video Editing</span>
+            <span class="tag" data-i18n="sk13">Internet & Email Operations</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="skillCat3">AI Tools & Professional Strengths</h3>
+          <div class="tags">
+            <span class="tag" data-i18n="sk14">ChatGPT</span>
+            <span class="tag" data-i18n="sk15">Claude AI</span>
+            <span class="tag" data-i18n="sk16">Microsoft Copilot</span>
+            <span class="tag" data-i18n="sk17">Google Gemini</span>
+            <span class="tag" data-i18n="sk18">Google Veo 3</span>
+            <span class="tag" data-i18n="sk19">Google Flow</span>
+            <span class="tag" data-i18n="sk20">Data Accuracy & Integrity</span>
+            <span class="tag" data-i18n="sk21">Time Management & Teamwork</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience" class="reveal">
+      <div class="section-header">
+        <h2 data-i18n="expTitle">Professional Experience</h2>
+        <p data-i18n="expSub">Proven track record in government office operations and data accuracy</p>
+      </div>
+      <div class="card exp-card">
+        <div class="exp-top">
+          <div>
+            <h3 data-i18n="expRole">Administrative & Data Entry Operator</h3>
+            <div class="exp-org" data-i18n="expOrg">Department of Social Services, Dhanbari</div>
+          </div>
+          <div class="exp-date" data-i18n="expDate">February 2023 – January 2025</div>
+        </div>
+        <ul class="exp-list">
+          <li data-i18n="expLi1">Performed computerised data-entry tasks using Microsoft Word and Excel with 98%+ accuracy.</li>
+          <li data-i18n="expLi2">Maintained and organised digital databases to support data integrity, security, and timely retrieval.</li>
+          <li data-i18n="expLi3">Provided administrative, secretarial, and technical support to departmental officers.</li>
+          <li data-i18n="expLi4">Prepared summary reports and official correspondence and supported communication between departments.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education & Certifications (GPA/CGPA Hidden) -->
+    <section id="education" class="reveal">
+      <div class="section-header">
+        <h2 data-i18n="eduTitle">Education & Certifications</h2>
+        <p data-i18n="eduSub">Academic qualifications and BTEB-certified technical training</p>
+      </div>
+      <div class="two-col">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="date" data-i18n="edu1Date">2022 (Published 2025)</div>
+            <h4 data-i18n="edu1Title">Bachelor of Social Science (B.S.S.)</h4>
+            <p data-i18n="edu1Desc">Bangladesh Open University — Political Science & Sociology</p>
+          </div>
+          <div class="timeline-item">
+            <div class="date" data-i18n="edu2Date">2019</div>
+            <h4 data-i18n="edu2Title">HSC (Business Management)</h4>
+            <p data-i18n="edu2Desc">BTEB, Ukhariabari BM College — Secretarial Science</p>
+          </div>
+          <div class="timeline-item">
+            <div class="date" data-i18n="edu3Date">2017</div>
+            <h4 data-i18n="edu3Title">Dakhil (Secondary)</h4>
+            <p data-i18n="edu3Desc">Baroipara Dakhil Madrasha — General</p>
+          </div>
+        </div>
+
+        <div class="timeline" id="training">
+          <div class="timeline-item">
+            <div class="date" data-i18n="tr1Date">Jan–Jun 2020 (Held March 2021) • Grade A+</div>
+            <h4 data-i18n="tr1Title">Database Programming — National Skill Standard Basic</h4>
+            <p data-i18n="tr1Desc">Sobuz Computer Training Institute, Dhanbari, Tangail (BTEB • 360 Hours / 6 Months)</p>
+          </div>
+          <div class="timeline-item">
+            <div class="date" data-i18n="tr2Date">Completed October 2018 • 3 Months</div>
+            <h4 data-i18n="tr2Title">Electrical House Wiring Technician</h4>
+            <p data-i18n="tr2Desc">Safe and Save Training Institute, Dhanbari, Tangail — B-SkillFUL (SDC, EU & Swisscontact). Covered OHS, house wiring, fault diagnostics, appliance repair, and entrepreneurship.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages with Flag SVG Logos -->
+      <div class="lang-bar">
+        <div class="lang-pill">
+          <svg width="24" height="16" viewBox="0 0 24 16" style="border-radius: 3px; flex-shrink: 0;">
+            <rect width="24" height="16" fill="#006A4E"/>
+            <circle cx="10.5" cy="8" r="4.8" fill="#F42A41"/>
+          </svg>
+          <span><strong data-i18n="langBnLbl">Bengali:</strong> <span data-i18n="langBnVal">Native</span></span>
+        </div>
+
+        <div class="lang-pill">
+          <svg width="24" height="16" viewBox="0 0 60 30" style="border-radius: 3px; flex-shrink: 0;">
+            <clipPath id="uk"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+            <g clip-path="url(#uk)">
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+            </g>
+          </svg>
+          <span><strong data-i18n="langEnLbl">English:</strong> <span data-i18n="langEnVal">Fluent</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Official Social Logos -->
+    <section id="contact" class="reveal">
+      <div class="section-header">
+        <h2 data-i18n="contactTitle">Connect With Me</h2>
+        <p data-i18n="contactSub">Reach out via email or connect on my official profiles</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:mdalaminhossen6897@gmail.com" class="social-card">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M2 6.5v11A1.5 1.5 0 0 0 3.5 19H6v-7.5L2 8.5z"/>
+              <path fill="#34A853" d="M18 19h2.5a1.5 1.5 0 0 0 1.5-1.5v-11l-4 2v10.5z"/>
+              <path fill="#EA4335" d="M6 11.5V6l6 4.5L18 6v5.5L12 16z"/>
+              <path fill="#C5221F" d="M2 6.5A1.5 1.5 0 0 1 4.4 5.3L6 6.5v5L2 8.5z"/>
+              <path fill="#FBBC05" d="M22 6.5a1.5 1.5 0 0 0-2.4-1.2L18 6.5v5l4-3z"/>
+            </svg>
+          </div>
+          <div class="social-text">
+            <span data-i18n="lblGmail">Gmail</span>
+            <strong>mdalaminhossen6897@gmail.com</strong>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/md-al-amin-hossen-225885408" target="_blank" class="social-card">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24">
+              <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+              <path fill="#FFFFFF" d="M7.5 18.5H4.8v-8.7h2.7v8.7zM6.15 8.6a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12zM19.2 18.5h-2.7v-4.23c0-1.01-.02-2.31-1.41-2.31-1.41 0-1.63 1.1-1.63 2.24v4.3h-2.7v-8.7h2.59v1.19h.04c.36-.68 1.24-1.41 2.56-1.41 2.74 0 3.25 1.8 3.25 4.15v4.77z"/>
+            </svg>
+          </div>
+          <div class="social-text">
+            <span data-i18n="lblLinkedIn">LinkedIn</span>
+            <strong data-i18n="brandName">MD AL-AMIN</strong>
+          </div>
+        </a>
+
+        <a href="https://github.com/akamosafir150" target="_blank" class="social-card">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24">
+              <path fill="#181717" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.95 10.95 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.26 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+            </svg>
+          </div>
+          <div class="social-text">
+            <span data-i18n="lblGitHub">GitHub</span>
+            <strong>@akamosafir150</strong>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/alaminhossen.com.bd" target="_blank" class="social-card">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="11.5" fill="#1877F2"/>
+              <path fill="#FFFFFF" d="M15.8 12.9l.5-3.2h-3.1V7.6c0-.9.4-1.7 1.8-1.7h1.4V3.1s-1.3-.2-2.5-.2c-2.5 0-4.2 1.5-4.2 4.3v2.5H6.8v3.2h2.9v7.8c.6.1 1.2.1 1.8.1s1.2 0 1.8-.1v-7.8h2.5z"/>
+            </svg>
+          </div>
+          <div class="social-text">
+            <span data-i18n="lblFacebook">Facebook</span>
+            <strong>alaminhossen.com.bd</strong>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="mailto:mdalaminhossen6897@gmail.com" title="Gmail">
+          <svg viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M2 6.5v11A1.5 1.5 0 0 0 3.5 19H6v-7.5L2 8.5z"/>
+            <path fill="#34A853" d="M18 19h2.5a1.5 1.5 0 0 0 1.5-1.5v-11l-4 2v10.5z"/>
+            <path fill="#EA4335" d="M6 11.5V6l6 4.5L18 6v5.5L12 16z"/>
+            <path fill="#C5221F" d="M2 6.5A1.5 1.5 0 0 1 4.4 5.3L6 6.5v5L2 8.5z"/>
+            <path fill="#FBBC05" d="M22 6.5a1.5 1.5 0 0 0-2.4-1.2L18 6.5v5l4-3z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/md-al-amin-hossen-225885408" target="_blank" title="LinkedIn">
+          <svg viewBox="0 0 24 24">
+            <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+            <path fill="#FFFFFF" d="M7.5 18.5H4.8v-8.7h2.7v8.7zM6.15 8.6a1.56 1.56 0 1 1 0-3.12 1.56 1.56 0 0 1 0 3.12zM19.2 18.5h-2.7v-4.23c0-1.01-.02-2.31-1.41-2.31-1.41 0-1.63 1.1-1.63 2.24v4.3h-2.7v-8.7h2.59v1.19h.04c.36-.68 1.24-1.41 2.56-1.41 2.74 0 3.25 1.8 3.25 4.15v4.77z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/akamosafir150" target="_blank" title="GitHub">
+          <svg viewBox="0 0 24 24">
+            <path fill="#181717" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a10.95 10.95 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.39-5.26 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/alaminhossen.com.bd" target="_blank" title="Facebook">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="11.5" fill="#1877F2"/>
+            <path fill="#FFFFFF" d="M15.8 12.9l.5-3.2h-3.1V7.6c0-.9.4-1.7 1.8-1.7h1.4V3.1s-1.3-.2-2.5-.2c-2.5 0-4.2 1.5-4.2 4.3v2.5H6.8v3.2h2.9v7.8c.6.1 1.2.1 1.8.1s1.2 0 1.8-.1v-7.8h2.5z"/>
+          </svg>
+        </a>
+      </div>
+      <div id="footerCopy">© <span id="year">2026</span> <span data-i18n="brandName">MD AL-AMIN</span>. <span data-i18n="rights">All rights reserved.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    // Full Bilingual Dictionary (English & Bangla)
+    const translations = {
+      en: {
+        pageTitle: "MD AL-AMIN | Portfolio",
+        brandName: "MD AL-AMIN",
+        navSkills: "Skills",
+        navExp: "Experience",
+        navEdu: "Education",
+        navCert: "Certifications",
+        navContact: "Contact",
+        badgeText: "Open to Administration, Data Entry & Technical Support",
+        heroGreet: "Hi, I'm",
+        typedName: "MD AL-AMIN",
+        heroRolePrefix: "I'm a",
+        typedRole: "Data Entry & Office Professional",
+        heroSummary: "Administrative and data-entry professional with two years of experience supporting the Department of Social Services. Skilled in computerised data entry, digital database maintenance, office documentation, mobile graphic design, video editing, and modern AI tools.",
+        btnConnect: "Connect With Me",
+        btnLinkedIn: "LinkedIn",
+        btnGitHub: "GitHub",
+        cardRole: "Administrative & Data Entry Professional",
+        cardLoc: "📍 Dhanbari, Tangail, Bangladesh",
+        stat1Val: "2 Years",
+        stat1Lbl: "Experience",
+        stat2Val: "98%+",
+        stat2Lbl: "Accuracy",
+        stat3Val: "Grade A+",
+        stat3Lbl: "BTEB Certified",
+        skillsTitle: "Core Skills",
+        skillsSub: "Technical, administrative, creative, and modern AI competencies",
+        skillCat1: "Office & Data Management",
+        sk1: "Data Entry (Bangla & English)",
+        sk2: "Microsoft Word",
+        sk3: "Microsoft Excel",
+        sk4: "Microsoft PowerPoint",
+        sk5: "Microsoft Access",
+        sk6: "Digital Database Maintenance",
+        sk7: "File Management",
+        skillCat2: "Administrative & Creative",
+        sk8: "Official Documentation",
+        sk9: "Report Preparation",
+        sk10: "Secretarial & Tech Support",
+        sk11: "Mobile Graphic Design",
+        sk12: "Photo & Video Editing",
+        sk13: "Internet & Email Operations",
+        skillCat3: "AI Tools & Professional Strengths",
+        sk14: "ChatGPT",
+        sk15: "Claude AI",
+        sk16: "Microsoft Copilot",
+        sk17: "Google Gemini",
+        sk18: "Google Veo 3",
+        sk19: "Google Flow",
+        sk20: "Data Accuracy & Integrity",
+        sk21: "Time Management & Teamwork",
+        expTitle: "Professional Experience",
+        expSub: "Proven track record in government office operations and data accuracy",
+        expRole: "Administrative & Data Entry Operator",
+        expOrg: "Department of Social Services, Dhanbari",
+        expDate: "February 2023 – January 2025",
+        expLi1: "Performed computerised data-entry tasks using Microsoft Word and Excel with 98%+ accuracy.",
+        expLi2: "Maintained and organised digital databases to support data integrity, security, and timely retrieval.",
+        expLi3: "Provided administrative, secretarial, and technical support to departmental officers.",
+        expLi4: "Prepared summary reports and official correspondence and supported communication between departments.",
+        eduTitle: "Education & Certifications",
+        eduSub: "Academic qualifications and BTEB-certified technical training",
+        edu1Date: "2022 (Published 2025)",
+        edu1Title: "Bachelor of Social Science (B.S.S.)",
+        edu1Desc: "Bangladesh Open University — Political Science & Sociology",
+        edu2Date: "2019",
+        edu2Title: "HSC (Business Management)",
+        edu2Desc: "BTEB, Ukhariabari BM College — Secretarial Science",
+        edu3Date: "2017",
+        edu3Title: "Dakhil (Secondary)",
+        edu3Desc: "Baroipara Dakhil Madrasha — General",
+        tr1Date: "Jan–Jun 2020 (Held March 2021) • Grade A+",
+        tr1Title: "Database Programming — National Skill Standard Basic",
+        tr1Desc: "Sobuz Computer Training Institute, Dhanbari, Tangail (BTEB • 360 Hours / 6 Months)",
+        tr2Date: "Completed October 2018 • 3 Months",
+        tr2Title: "Electrical House Wiring Technician",
+        tr2Desc: "Safe and Save Training Institute, Dhanbari, Tangail — B-SkillFUL (SDC, EU & Swisscontact). Covered OHS, house wiring, fault diagnostics, appliance repair, and entrepreneurship.",
+        langBnLbl: "Bengali:",
+        langBnVal: "Native",
+        langEnLbl: "English:",
+        langEnVal: "Fluent",
+        contactTitle: "Connect With Me",
+        contactSub: "Reach out via email or connect on my official profiles",
+        lblGmail: "Gmail",
+        lblLinkedIn: "LinkedIn",
+        lblGitHub: "GitHub",
+        lblFacebook: "Facebook",
+        rights: "All rights reserved.",
+        langBtnText: "🌐 বাংলা"
+      },
+      bn: {
+        pageTitle: "মোঃ আল-আমিন | পোর্টফোলিও",
+        brandName: "মোঃ আল-আমিন",
+        navSkills: "দক্ষতা",
+        navExp: "অভিজ্ঞতা",
+        navEdu: "শিক্ষা",
+        navCert: "প্রশিক্ষণ",
+        navContact: "যোগাযোগ",
+        badgeText: "প্রশাসনিক, ডেটা এন্ট্রি ও টেকনিক্যাল সাপোর্ট কাজের জন্য প্রস্তুত",
+        heroGreet: "হ্যালো, আমি",
+        typedName: "মোঃ আল-আমিন",
+        heroRolePrefix: "আমি একজন",
+        typedRole: "ডেটা এন্ট্রি ও অফিস প্রফেশনাল",
+        heroSummary: "সমাজসেবা অধিদপ্তরে ২ বছর কাজের বাস্তব অভিজ্ঞতাসম্পন্ন একজন প্রশাসনিক ও ডেটা এন্ট্রি প্রফেশনাল। কম্পিউটারাইজড ডেটা এন্ট্রি, ডিজিটাল ডেটাবেস ব্যবস্থাপনা, অফিস ডকুমেন্টেশন, মোবাইল গ্রাফিক ডিজাইন, ভিডিও এডিটিং এবং আধুনিক এআই (AI) টুলস ব্যবহারে দক্ষ।",
+        btnConnect: "যোগাযোগ করুন",
+        btnLinkedIn: "লিংকডইন",
+        btnGitHub: "গিটহাব",
+        cardRole: "অ্যাডমিনিস্ট্রেটিভ ও ডেটা এন্ট্রি প্রফেশনাল",
+        cardLoc: "📍 ধনবাড়ী, টাঙ্গাইল, বাংলাদেশ",
+        stat1Val: "২ বছর",
+        stat1Lbl: "অভিজ্ঞতা",
+        stat2Val: "৯৮%+",
+        stat2Lbl: "নির্ভুলতা",
+        stat3Val: "গ্রেড A+",
+        stat3Lbl: "BTEB সনদপ্রাপ্ত",
+        skillsTitle: "মূল দক্ষতা",
+        skillsSub: "প্রযুক্তিগত, প্রশাসনিক, সৃজনশীল এবং আধুনিক এআই দক্ষতা",
+        skillCat1: "অফিস ও ডেটা ব্যবস্থাপনা",
+        sk1: "ডেটা এন্ট্রি (বাংলা ও ইংরেজি)",
+        sk2: "মাইক্রোসফট ওয়ার্ড",
+        sk3: "মাইক্রোসফট এক্সেল",
+        sk4: "মাইক্রোসফট পাওয়ারপয়েন্ট",
+        sk5: "মাইক্রোসফট অ্যাক্সেস",
+        sk6: "ডিজিটাল ডেটাবেস ব্যবস্থাপনা",
+        sk7: "ফাইল ম্যানেজমেন্ট",
+        skillCat2: "প্রশাসনিক ও সৃজনশীল কাজ",
+        sk8: "অফিশিয়াল ডকুমেন্টেশন",
+        sk9: "রিপোর্ট প্রস্তুতকরণ",
+        sk10: "সেক্রেটারিয়াল ও টেকনিক্যাল সাপোর্ট",
+        sk11: "মোবাইল গ্রাফিক ডিজাইন",
+        sk12: "ফটো ও ভিডিও এডিটিং",
+        sk13: "ইন্টারনেট ও ইমেইল পরিচালনা",
+        skillCat3: "এআই টুলস ও পেশাগত গুণাবলি",
+        sk14: "চ্যাটজিপিটি (ChatGPT)",
+        sk15: "ক্লড এআই (Claude AI)",
+        sk16: "মাইক্রোসফট কোপাইলট",
+        sk17: "গুগল জেমিনি (Gemini)",
+        sk18: "গুগল ভিও ৩ (Veo 3)",
+        sk19: "গুগল ফ্লো (Flow)",
+        sk20: "তথ্যের নির্ভুলতা ও সততা",
+        sk21: "সময় ব্যবস্থাপনা ও দলগত কাজ",
+        expTitle: "পেশাগত অভিজ্ঞতা",
+        expSub: "সরকারি অফিস পরিচালনা এবং নির্ভুল ডেটা ব্যবস্থাপনার বাস্তব অভিজ্ঞতা",
+        expRole: "অ্যাডমিনিস্ট্রেটিভ ও ডেটা এন্ট্রি অপারেটর",
+        expOrg: "সমাজসেবা অধিদপ্তর, ধনবাড়ী",
+        expDate: "ফেব্রুয়ারি ২০২৩ – জানুয়ারি ২০২৫",
+        expLi1: "মাইক্রোসফট ওয়ার্ড ও এক্সেল ব্যবহার করে ৯৮%+ নির্ভুলতার সাথে কম্পিউটারাইজড ডেটা এন্ট্রির কাজ সম্পন্ন করেছি।",
+        expLi2: "তথ্যের নিরাপত্তা, নির্ভুলতা এবং দ্রুত প্রাপ্তি নিশ্চিত করতে ডিজিটাল ডেটাবেস সংরক্ষণ ও পরিচালনা করেছি।",
+        expLi3: "বিভাগীয় কর্মকর্তাদের প্রশাসনিক, সেক্রেটারিয়াল এবং টেকনিক্যাল সহায়তা প্রদান করেছি।",
+        expLi4: "সংক্ষিপ্ত রিপোর্ট ও অফিশিয়াল চিঠিপত্র প্রস্তুত এবং আন্তঃবিভাগীয় যোগাযোগে সহায়তা করেছি।",
+        eduTitle: "শিক্ষাগত যোগ্যতা ও প্রশিক্ষণ",
+        eduSub: "একাডেমিক যোগ্যতা এবং কারিগরি শিক্ষা বোর্ড (BTEB) অনুমোদিত প্রশিক্ষণ",
+        edu1Date: "২০২২ (প্রকাশিত ২০২৫)",
+        edu1Title: "ব্যাচেলর অফ সোশ্যাল সায়েন্স (বি.এস.এস.)",
+        edu1Desc: "বাংলাদেশ উন্মুক্ত বিশ্ববিদ্যালয় — রাষ্ট্রবিজ্ঞান ও সমাজবিজ্ঞান",
+        edu2Date: "২০১৯",
+        edu2Title: "এইচএসসি (বিজনেস ম্যানেজমেন্ট)",
+        edu2Desc: "বাংলাদেশ কারিগরি শিক্ষা বোর্ড (BTEB), উখারিয়াবাড়ী বিএম কলেজ — সেক্রেটারিয়াল সায়েন্স",
+        edu3Date: "২০১৭",
+        edu3Title: "দাখিল (মাধ্যমিক)",
+        edu3Desc: "বাড়ইপাড়া দাখিল মাদ্রাসা — সাধারণ বিভাগ",
+        tr1Date: "জানু–জুন ২০২০ (অনুষ্ঠিত মার্চ ২০২১) • গ্রেড A+",
+        tr1Title: "ডেটাবেস প্রোগ্রামিং — ন্যাশনাল স্কিল স্ট্যান্ডার্ড বেসিক",
+        tr1Desc: "সবুজ কম্পিউটার ট্রেনিং ইনস্টিটিউট, ধনবাড়ী, টাঙ্গাইল (BTEB • ৩৬০ ঘণ্টা / ৬ মাস)",
+        tr2Date: "সম্পন্ন: অক্টোবর ২০১৮ • ৩ মাস",
+        tr2Title: "ইলেকট্রিক্যাল হাউস ওয়্যারিং টেকনিশিয়ান",
+        tr2Desc: "সেফ অ্যান্ড সেভ ট্রেনিং ইনস্টিটিউট, ধনবাড়ী, টাঙ্গাইল — B-SkillFUL (SDC, EU ও Swisscontact)। প্রশিক্ষণের বিষয়: কর্মক্ষেত্রের স্বাস্থ্য ও নিরাপত্তা (OHS), হাউস ওয়্যারিং, ত্রুটি নির্ণয়, যন্ত্রপাতি মেরামত ও উদ্যোক্তা উন্নয়ন।",
+        langBnLbl: "বাংলা:",
+        langBnVal: "মাতৃভাষা",
+        langEnLbl: "ইংরেজি:",
+        langEnVal: "সাবলীল",
+        contactTitle: "যোগাযোগ করুন",
+        contactSub: "ইমেইলের মাধ্যমে যোগাযোগ করুন অথবা আমার অফিশিয়াল প্রোফাইলগুলোতে যুক্ত হোন",
+        lblGmail: "জিমেইল",
+        lblLinkedIn: "লিংকডইন",
+        lblGitHub: "গিটহাব",
+        lblFacebook: "ফেসবুক",
+        rights: "সর্বস্বত্ব সংরক্ষিত।",
+        langBtnText: "🌐 EN"
+      }
+    };
+
+    function toBengaliDigits(str) {
+      const bnDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+      return String(str).replace(/\d/g, d => bnDigits[d]);
+    }
+
+    function restartTypingAnimation(el) {
+      if (!el) return;
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = '';
+    }
+
+    const htmlEl = document.documentElement;
+    const langToggle = document.getElementById('langToggle');
+    const nameGhost = document.getElementById('nameGhost');
+    const nameTyped = document.getElementById('nameTyped');
+    const roleGhost = document.getElementById('roleGhost');
+    const roleTyped = document.getElementById('roleTyped');
+    const yearEl = document.getElementById('year');
+
+    function applyLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+      htmlEl.setAttribute('lang', lang);
+      document.title = dict.pageTitle;
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Update typing elements & restart typing cleanly
+      nameGhost.textContent = dict.typedName;
+      nameTyped.textContent = dict.typedName;
+      roleGhost.textContent = dict.typedRole;
+      roleTyped.textContent = dict.typedRole;
+      restartTypingAnimation(nameTyped);
+      restartTypingAnimation(roleTyped);
+
+      // Update toggle button & year
+      langToggle.textContent = dict.langBtnText;
+      const currentYear = new Date().getFullYear();
+      yearEl.textContent = lang === 'bn' ? toBengaliDigits(currentYear) : currentYear;
+
+      try {
+        localStorage.setItem('siteLang', lang);
+      } catch (e) {}
+    }
+
+    // Initialize Language
+    let currentLang = 'en';
+    try {
+      currentLang = localStorage.getItem('siteLang') || 'en';
+    } catch (e) {}
+    applyLanguage(currentLang);
+
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      applyLanguage(currentLang);
+    });
+
+    // Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+      });
+    }
+
+    // Dark / Light Theme
+    const themeToggle = document.getElementById('themeToggle');
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      htmlEl.setAttribute('data-theme', savedTheme);
+      themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+      themeToggle.addEventListener('click', () => {
+        const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        htmlEl.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+      });
+    } catch (e) {}
+
+    // Smooth Scroll Fade-In Reveal
+    if ('IntersectionObserver' in window) {
+      document.documentElement.classList.add('js-enabled');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+  </script>
+</body>
+</html>
